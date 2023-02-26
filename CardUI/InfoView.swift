@@ -10,18 +10,19 @@ struct InfoView: View {
     // Código que teníamos originalmente.
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0)
-            .fill(Color.init(red: 238/255, green: 238/255, blue: 238/255))
+            .fill(CustomColor.hueso)
             .frame(height: 50.0)
             .overlay(HStack {
                 Image(systemName: symbolName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50.0, height: 50.0)
-                    .foregroundStyle(Color(red: 1.0, green: 95/255, blue: 0.0), .white)
+                    .foregroundStyle(CustomColor.naranja, CustomColor.white)
                 Text(textLabel)
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .frame(width: 270, height: 50.0)
+                    .foregroundColor(CustomColor.texto)
             })
             .padding([.leading, .bottom, .trailing], 25.0)
     }

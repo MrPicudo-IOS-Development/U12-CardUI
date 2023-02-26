@@ -5,7 +5,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Color(red: 0.0, green: 9/255, blue: 44/255, opacity: 0.95) // El último parámetro es opcional.
+            Color("Fondo") // Si se usa el objeto Color, se usa directamente el Color Set que creamos.
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
@@ -14,50 +14,50 @@ struct ContentView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundStyle(Color(red: 238/255, green: 238/255, blue: 238/255), Color(red: 1.0, green: 95/255, blue: 0.0))
+                            .foregroundStyle(CustomColor.hueso, CustomColor.naranja)
                         Image(systemName: "bonjour")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundStyle(Color(red: 238/255, green: 238/255, blue: 238/255), Color(red: 1.0, green: 95/255, blue: 0.0), .gray)
+                            .foregroundStyle(CustomColor.hueso, CustomColor.naranja)
                         Image(systemName: "infinity.circle")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundStyle(Color(red: 238/255, green: 238/255, blue: 238/255), Color(red: 1.0, green: 95/255, blue: 0.0))
+                            .foregroundStyle(CustomColor.hueso, CustomColor.naranja)
                     }
 
                     Image("Miguel Torres")
                         .resizable()
                         .frame(width: 200.0, height: 200.0)
                         .clipShape(Circle()) // Hace redonda la imagen
-                        .overlay(Circle().stroke(Color.black, lineWidth: 4.0))
+                        .overlay(Circle().stroke(CustomColor.texto, lineWidth: 4.0))
                     
                     VStack {
                         Image(systemName: "bolt.heart")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundStyle(Color(red: 1.0, green: 95/255, blue: 0.0), Color(red: 238/255, green: 238/255, blue: 238/255))
+                            .foregroundStyle(CustomColor.hueso, CustomColor.naranja)
                         Image(systemName: "01.circle")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundStyle(Color(red: 1.0, green: 95/255, blue: 0.0), Color(red: 238/255, green: 238/255, blue: 238/255))
+                            .foregroundStyle(CustomColor.hueso, CustomColor.naranja)
                         Image(systemName: "atom")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundStyle(Color(red: 1.0, green: 95/255, blue: 0.0), Color(red: 238/255, green: 238/255, blue: 238/255))
+                            .foregroundStyle(CustomColor.hueso, CustomColor.naranja)
                     }
                 }
                 Text("Miguel Torres")
                     .font(.custom("Pacifico-Regular", size: 20.0))
-                    .foregroundColor(Color(red: 238/255, green: 238/255, blue: 238/255))
+                    .foregroundColor(CustomColor.hueso)
                 Text("iOS Developer")
                     .font(.system(size: 25.0)) // Elegimos directamente el tamaño de la fuente.
                     .fontWeight(.bold)
-                    .foregroundColor(Color(red: 1.0, green: 95/255, blue: 0.0))
+                    .foregroundColor(CustomColor.naranja)
                 
                 Divider()
                 
@@ -73,4 +73,14 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+// Estructura para identificar adecuadamente los colores personalizados con opción de dark mode.
+struct CustomColor {
+    // Usamos "static" para que el color pueda ser utilizado desde la estructura y no desde un objeto.
+    static let hueso = Color("Hueso")
+    static let texto = Color("Texto")
+    static let white = Color("White")
+    static let fondo = Color("Fondo")
+    static let naranja = Color("Naranja")
 }
